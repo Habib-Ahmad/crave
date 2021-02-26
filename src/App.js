@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import {React, useState} from 'react'
 import './App.css';
+import Header from "./components/Header";
+import Explore from './components/Explore';
+import Search from './components/Search';
+import Favorites from './components/Favorites'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { FavoriteProvider } from './FavoriteContext'
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FavoriteProvider>
+      <Router>
+        <div className="app">
+          <div className="appBorder">
+            <Header />
+            <Switch>
+              <Route path="/" exact render={props => <Explore {...props}/>} />
+              <Route path="/favorites" render={props => <Favorites {...props} />} />
+              <Route path="/search" render={props => <Search {...props} />} />
+            </Switch>
+          </div>
+        </div> 
+      </Router>
+    </FavoriteProvider>
   );
 }
 

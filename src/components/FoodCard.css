@@ -1,0 +1,61 @@
+.foodCard {
+  background-color: #ffffff10;
+  box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.356);
+  color: white;
+  width: 250px;
+  height: 350px;
+  padding: 5px;
+  transition: transform 100ms;
+  margin-bottom: 2em;
+  margin-right: 3em;
+  border-radius: 5px;
+}
+
+.foodCard:hover {
+  transform: scale(1.09);
+}
+
+.foodCard__thumbnail > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.foodCard__thumbnail > h2 {
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
+
+.foodCard__thumbnail > p {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.modal-title > small {
+  background-color: grey;
+  border-radius: 7px;
+  color: white;
+  padding: 3px;
+  margin-right: 0px;
+}
+
+.modal__img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.modal__ingredients {
+  font-style: italic;
+  display: flex;
+}
+
+.modal__heading {
+  margin-bottom: 15px;
+}
+
+.modal__instruction {
+  padding-left: 5px;
+}
