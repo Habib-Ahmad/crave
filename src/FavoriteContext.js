@@ -10,7 +10,7 @@ export const FavoriteProvider = props => {
     }, [])
 
     return(
-        <FavoriteContext.Provider value={"Working!"}>
+        <FavoriteContext.Provider value={[favorites, setFavorites]}>
             {props.children}
         </FavoriteContext.Provider>
     )
