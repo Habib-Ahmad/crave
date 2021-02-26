@@ -18,7 +18,7 @@ export default function Explore() {
         "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random",
       params: { number: "4", tags: "" },
       headers: {
-        "x-rapidapi-key": "e5d5b7b20cmshd7efcea0cd1f698p1c05e1jsn54d8c360ab91",
+        "x-rapidapi-key": "",
         "x-rapidapi-host":
           "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
       },
