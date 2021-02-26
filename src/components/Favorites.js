@@ -1,16 +1,21 @@
-import React, {useContext} from 'react'
-import './Favorites.css'
-import FoodCard from './FoodCard'
-import {FavoriteContext} from '../FavoriteContext'
+import React, { useContext, useEffect } from "react";
+import { FavoriteContext } from "../FavoriteContext";
+import "./Favorites.css";
+import FoodCard from "./FoodCard";
 
-export default function Favorites() {
+const Favorites = () => {
+  const { favourites, dispatch } = useContext(FavoriteContext);
 
-    const [favorites, setFavorites] = useContext(FavoriteContext)
-    console.log(favorites)
+  useEffect(() => {
+    console.log(favourites);
+  }, []);
 
-    return (
-        <div className="favorites">
-            {favorites && favorites.map(favorite => <FoodCard key={favorite.id} recipe={favorite}/>)}
-        </div>
-    )
-}
+  return (
+    <div className="favorites">
+      {favourites &&
+        favourites?.data?.map((fav) => <FoodCard key={fav.id} recipe={fav} />)}
+    </div>
+  );
+};
+
+export default Favorites;

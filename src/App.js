@@ -1,29 +1,35 @@
-import {React, useState} from 'react'
-import './App.css';
+import { React } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Explore from "./components/Explore";
+import Favorites from "./components/Favorites";
 import Header from "./components/Header";
-import Explore from './components/Explore';
-import Search from './components/Search';
-import Favorites from './components/Favorites'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import { FavoriteProvider } from './FavoriteContext'
+import Search from "./components/Search";
+import { FavoriteContextProvider } from "./FavoriteContext";
 
 function App() {
-
   return (
-    <FavoriteProvider>
+    <FavoriteContextProvider>
       <Router>
         <div className="app">
           <div className="appBorder">
             <Header />
             <Switch>
-              <Route path="/" exact render={props => <Explore {...props}/>} />
-              <Route path="/favorites" render={props => <Favorites {...props} />} />
-              <Route path="/search" render={props => <Search {...props} />} />
+              <Route
+                path="/"
+                exact
+                render={(props) => <Explore {...props} />}
+              />
+              <Route
+                path="/favorites"
+                render={(props) => <Favorites {...props} />}
+              />
+              <Route path="/search" render={(props) => <Search {...props} />} />
             </Switch>
           </div>
-        </div> 
+        </div>
       </Router>
-    </FavoriteProvider>
+    </FavoriteContextProvider>
   );
 }
 
