@@ -1,13 +1,14 @@
 .background {
   height: 100%;
   width: 100%;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg");
+  background-image: url("https://img1.goodfon.com/wallpaper/nbig/3/dd/ryby-ryba-pripravy-eda-ovoshchi-stol.jpg");
   background-repeat: no-repeat;
   position: absolute;
   background-size: cover;
   z-index: -1;
-  filter: blur(0px);
+  filter: blur(20px);
   position: fixed;
+  transform: scale(1.2);
 }
 
 .app {

@@ -70,13 +70,15 @@ export default function Search() {
     
     return (
         <div className="search">
-            <input className="search__bar" type="text" name="queryInput" placeholder="Search for a recipe e.g cheesecake, noodles" onChange={updateQueryInput} /><br/>
-            <div className="btn btn-primary" onClick={handleClick}>Submit</div>
+            <div className="search__bar__wrapper">
+                <input className="search__bar" type="text" name="queryInput" placeholder="Search for a recipe e.g cheesecake, noodles" onChange={updateQueryInput} /><Icon.Search className="search__icon" onClick={handleClick} />
+            </div>
+            
             <Accordion>
-                <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                    <Button className="btn btn-secondary"><Icon.Funnel /> Filter</Button>
+                <Accordion.Toggle as={Button} variant="link" eventKey="0" className="btn btn-secondary text-white p-1 mb-2 mt-4">
+                    <Icon.Funnel className="search__filter"/> Filter
                 </Accordion.Toggle>
-                <Card style={{border:"none"}} bg="secondary" text="light">
+                <Card  className="mb-3" style={{border:"none"}} bg="secondary" text="light">
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
                             <div className="radioInput" onChange={updateDietInput}>
