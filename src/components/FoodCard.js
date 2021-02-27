@@ -15,8 +15,6 @@ const FoodCard = ({ recipe }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(favourites);
-
   const handleClick = (e) => {
     e.preventDefault();
     let newList = favourites?.data;
@@ -36,50 +34,25 @@ const FoodCard = ({ recipe }) => {
     <div className="foodCard">
       <div className="foodCard__thumbnail" onClick={handleShow}>
         <img src={recipe && recipe.image} alt="Food Thumbnail" />
-        <TextTruncate
-          line={2}
-          element="h2"
-          truncateText="..."
-          text={recipe && recipe.title}
-        />
+
+        <TextTruncate line={2} element="h2" truncateText="..." text={recipe && recipe.title} />
+
         <p>Preparation Time: {recipe && recipe.readyInMinutes}mins</p>
+
         <p>Servings: {recipe && recipe.servings}</p>
       </div>
-      <p onClick={handleClick}>
-        {recipe.isAdded ? (
-          <Icon.SuitHeartFill color="red" />
-        ) : (
-          <Icon.SuitHeart />
-        )}
-      </p>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        centered
-        backdrop="static"
-        keyboard={false}
-      >
+
+      <p onClick={handleClick}>{recipe.isAdded ? (<Icon.SuitHeartFill color="red" />) : (<Icon.SuitHeart />)}</p>
+      
+      <Modal show={show} onHide={handleClose} centered backdrop="static" keyboard={false} >
         <Modal.Header closeButton>
           <Modal.Title>
             {recipe.title} <br />
-            <small
-              style={
-                recipe && recipe.vegetarian
-                  ? { display: "inline-flex" }
-                  : { display: "none" }
-              }
-            >
-              {recipe && recipe.vegetarian ? "Vegetarian" : "nothing to see"}
-            </small>
-            &nbsp;
-            <small
-              style={
-                recipe && recipe.vegan
-                  ? { display: "inline-flex" }
-                  : { display: "none" }
-              }
-            >
-              {recipe && recipe.vegan ? "Vegan" : "nothing to see"}
+            <small style={recipe && recipe.vegetarian ? { display: "inline-flex" }: { display: "none" }}>
+                {recipe && recipe.vegetarian ? "Vegetarian" : "nothing to see"}
+            </small>&nbsp;
+            <small style={recipe && recipe.vegan ? { display: "inline-flex" } : { display: "none" }}>
+                {recipe && recipe.vegan ? "Vegan" : "nothing to see"}
             </small>
           </Modal.Title>
         </Modal.Header>
@@ -87,8 +60,7 @@ const FoodCard = ({ recipe }) => {
           <img src={recipe.image} className="modal__img" alt="Food Thumbnail" />
           <h3 className="modal__heading">Ingredients</h3>
           {recipe?.extendedIngredients?.map((item, index) => (
-            <p className="modal__ingredients" key={index}>
-              {index + 1}.{" "}
+            <p className="modal__ingredients" key={index}>{index + 1}.{" "}
               <p style={{ marginLeft: "5px" }}>
                 {item.name.charAt(0).toUpperCase() + item.name.slice(1)}:{" "}
                 {item.amount}

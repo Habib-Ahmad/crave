@@ -1,3 +1,35 @@
+.search {
+  position: relative;
+  min-width: 100px;
+  align-content: center;
+}
+
+.search__bar {
+  border: 1px solid grey;
+  border-radius: 20px;
+  height: 40px;
+  width: 60%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: rgb(255, 255, 255);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.search > .accordion {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 50%;
+}
+
+.radioInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .results {
   display: flex;
   flex-wrap: wrap;

@@ -11,19 +11,13 @@ function App() {
   return (
     <FavoriteContextProvider>
       <Router>
+        <div className="background"></div>
         <div className="app">
           <div className="appBorder">
             <Header />
             <Switch>
-              <Route
-                path="/"
-                exact
-                render={(props) => <Explore {...props} />}
-              />
-              <Route
-                path="/favorites"
-                render={(props) => <Favorites {...props} />}
-              />
+              <Route path="/" exact render={(props) => <Explore {...props} />} />
+              <Route path="/favorites" render={(props) => <Favorites {...props} />} />
               <Route path="/search" render={(props) => <Search {...props} />} />
             </Switch>
           </div>
