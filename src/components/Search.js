@@ -40,17 +40,10 @@ export default function Search() {
             method: 'GET',
             url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
             params: {
-                // query: 'burger',
-                // diet: '',
-                // excludeIngredients: 'coconut',
-                // intolerances: 'egg, gluten',
-                // number: '4',
-                // offset: '0',
-                // type: 'main course'
                 query: q,
                 diet: d,
                 excludeIngredients: e,
-                number: '4',
+                number: '12',
                 offset: '0',
                 type: t
             },
@@ -61,8 +54,7 @@ export default function Search() {
         };
             
         axios.request(options).then(function (response) {
-            setResults(response.data.results);
-            console.log(response.data.results)
+            setResults(response.data.results)
         }).catch(function (error) {
             console.error(error);
         });      

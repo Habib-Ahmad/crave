@@ -59,3 +59,11 @@
 .modal__instruction {
   padding-left: 5px;
 }
+
+.checked{
+  opacity: 0.5;
+}
+
+.unchecked{
+  opacity: 1;
+}
