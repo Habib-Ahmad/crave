@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./Search.css";
 import axios from 'axios'
 import SearchFoodCard from './SearchFoodCard'
@@ -17,6 +17,9 @@ export default function Search() {
 
     const updateQueryInput = (e) => {
         setQueryInput(e.target.value)
+        if(e.key === 'Enter'){
+            console.log('do validate');
+        }
     }
 
     const updateDietInput = (e) => {
@@ -43,7 +46,7 @@ export default function Search() {
                 query: q,
                 diet: d,
                 excludeIngredients: e,
-                number: '13',
+                number: '1',
                 offset: '0',
                 type: t
             },
