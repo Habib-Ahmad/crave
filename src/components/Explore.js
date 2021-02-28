@@ -15,7 +15,7 @@ export default function Explore() {
       method: "GET",
       url:
         "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random",
-      params: { number: "1", tags: "" },
+      params: { number: "18", tags: "" },
       headers: {
         "x-rapidapi-key": process.env.REACT_APP_SPOONACULAR_API_KEY,
         "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
