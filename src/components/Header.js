@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 export default function Header() {
     return (
         <div>
-            <Nav>
+            <Nav className="nav">
                 <Nav.Item>
                     <Nav.Link href="/">Explore</Nav.Link>
                 </Nav.Item>

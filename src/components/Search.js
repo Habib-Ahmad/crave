@@ -66,25 +66,25 @@ export default function Search() {
                 <input className="search__bar" type="text" name="queryInput" placeholder="Search for a recipe e.g cheesecake, noodles" onChange={updateQueryInput} /><Icon.Search className="search__icon" onClick={handleClick} />
             </div>
             
-            <Accordion>
+            <Accordion className="search__filter">
                 <Accordion.Toggle as={Button} variant="link" eventKey="0" className="btn btn-secondary text-white p-1 mb-2 mt-4">
-                    <Icon.Funnel className="search__filter"/> Filter
+                    <Icon.Funnel/> Filter
                 </Accordion.Toggle>
                 <Card  className="mb-3" style={{border:"none"}} bg="secondary" text="light">
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
-                            <div className="radioInput" onChange={updateDietInput}>
+                            <div className="search__filter__radioInput" onChange={updateDietInput}>
                                 <input type="radio" name="dietInput" value="None" />
-                                    <label>None</label><br/>
+                                    <label>None</label>
                                 <input type="radio" name="dietInput" value="Vegetarian" />
-                                    <label>vegetarian</label><br/>
+                                    <label>Vegetarian</label>
                                 <input type="radio" name="dietInput" value="Vegan" />
-                                    <label>Vegan</label><br/>                
+                                    <label>Vegan</label>     
                             </div>
 
-                            <label>Exclude:</label><input type="text" name="excludeInput" placeholder="e.g gluten, egg" onChange={updateExcludeInput} value={excludeInput} /><br/>
+                            <label className="search__filter__label">Exclude:</label><input className="search__filter__input" type="text" name="excludeInput" placeholder="e.g gluten, egg" onChange={updateExcludeInput} value={excludeInput} /><br/>
 
-                            <label>Type:</label><input type="text" name="typeInput" placeholder="main course, side dish, dessert, appetizer" onChange={updateTypeInput} value={typeInput} /><br/>
+                            <label className="search__filter__label">Type:</label><input className="search__filter__input" type="text" name="typeInput" placeholder="main course, side dish, dessert, appetizer" onChange={updateTypeInput} value={typeInput} /><br/>
 
                             
                         </Card.Body>

@@ -1,14 +1,14 @@
 .background {
   height: 100%;
   width: 100%;
-  background-image: url("https://img1.goodfon.com/wallpaper/nbig/3/dd/ryby-ryba-pripravy-eda-ovoshchi-stol.jpg");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwPgxQXoG2DJkwupBsEg7V1V9izLRUK5kXaw&usqp=CAU");
   background-repeat: no-repeat;
   position: absolute;
   background-size: cover;
   z-index: -1;
-  filter: blur(20px);
+  filter: blur(50px);
   position: fixed;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .app {
@@ -23,6 +23,9 @@
   margin-right: 15%;
 }
 
-.app::-webkit-scrollbar {
-  display: none;
+@media screen and (max-width: 768px) {
+  .appBorder {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
