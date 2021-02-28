@@ -43,7 +43,7 @@ export default function Search() {
                 query: q,
                 diet: d,
                 excludeIngredients: e,
-                number: '12',
+                number: '1',
                 offset: '0',
                 type: t
             },

@@ -4,6 +4,7 @@ import axios from 'axios'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import TextTruncate from 'react-text-truncate'
+import Loader from 'react-loader-spinner'
 
 const SearchFoodCard = forwardRef(({result}, ref) =>  {
 
@@ -17,7 +18,7 @@ const SearchFoodCard = forwardRef(({result}, ref) =>  {
             method: 'GET',
             url:` https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${result.id}/information`,
             headers: {
-              'x-rapidapi-key': 'e5d5b7b20cmshd7efcea0cd1f698p1c05e1jsn54d8c360ab91',
+              'x-rapidapi-key': 'process.env.REACT_APP_SPOONACULAR_API_KEY',
               'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
             }
           };
@@ -43,12 +44,11 @@ const SearchFoodCard = forwardRef(({result}, ref) =>  {
                 <p>Preparation Time: {result && result.readyInMinutes}mins</p>
                 <p>Servings: {result && result.servings}</p>
             </div>
-
+            
             <Modal
                 show={show}
                 onHide={handleClose}
                 centered
-                // backdrop="static"
                 keyboard={false}
             >
                 <Modal.Header closeButton>
@@ -58,6 +58,7 @@ const SearchFoodCard = forwardRef(({result}, ref) =>  {
                         <small style={recipe && recipe.vegan?{display:"inline-flex"}:{display:'none'}}>{recipe && recipe.vegan?"Vegan":null}</small>
                     </Modal.Title>
                 </Modal.Header>
+                {recipe?
                 <Modal.Body>
                     <img src={recipe && recipe.image} className="modal__img" alt="Food Thumbnail" />
                     <h3 className="modal__heading">Ingredients</h3>
@@ -80,12 +81,14 @@ const SearchFoodCard = forwardRef(({result}, ref) =>  {
                         )
                     }
                 </Modal.Body>
+                :<Loader className="modal__loader" type="Puff" color="#00BFFF" height={80} width={80}/>}
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="dark" onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>
             </Modal>
+        
     </div>
     )
 })

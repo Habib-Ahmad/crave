@@ -1,4 +1,3 @@
-// import React, { useState, forwardRef } from 'react'
 import React, { useContext, useState } from "react";
 import * as Icon from "react-bootstrap-icons";
 import Button from "react-bootstrap/Button";
@@ -7,7 +6,6 @@ import TextTruncate from "react-text-truncate";
 import { AddFavorite } from "../action";
 import { FavoriteContext } from "../FavoriteContext";
 import "./FoodCard.css";
-// const FoodCard = forwardRef(({recipe, ref, ...props}) =>  {\
 
 const FoodCard = ({ recipe }) => {
   const { favourites, dispatch } = useContext(FavoriteContext);
@@ -30,7 +28,6 @@ const FoodCard = ({ recipe }) => {
   }
 
   return (
-    // <div ref={ref} className="foodCard">
     <div className="foodCard">
       <div className="foodCard__thumbnail" onClick={handleShow}>
         <img src={recipe && recipe.image} alt="Food Thumbnail" />
@@ -47,13 +44,9 @@ const FoodCard = ({ recipe }) => {
       <Modal show={show} onHide={handleClose} centered backdrop="static" keyboard={false} >
         <Modal.Header closeButton>
           <Modal.Title>
-            {recipe.title} <br />
-            <small style={recipe && recipe.vegetarian ? { display: "inline-flex" }: { display: "none" }}>
-                {recipe && recipe.vegetarian ? "Vegetarian" : "nothing to see"}
-            </small>&nbsp;
-            <small style={recipe && recipe.vegan ? { display: "inline-flex" } : { display: "none" }}>
-                {recipe && recipe.vegan ? "Vegan" : "nothing to see"}
-            </small>
+          {recipe && recipe.title} <br />
+                        <small style={recipe && recipe.vegetarian?{display:"inline-flex"}:{display:'none'}}>{recipe && recipe.vegetarian?"Vegetarian":null}</small>&nbsp;
+                        <small style={recipe && recipe.vegan?{display:"inline-flex"}:{display:'none'}}>{recipe && recipe.vegan?"Vegan":null}</small>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -79,7 +72,7 @@ const FoodCard = ({ recipe }) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="dark" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
