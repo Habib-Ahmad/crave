@@ -14,7 +14,6 @@ const FoodCard = ({ recipe }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [checked, setChecked] = useState([false])
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -28,9 +27,6 @@ const FoodCard = ({ recipe }) => {
       recipe.isAdded = true;
       dispatch(AddFavorite([...favourites.data, recipe]));
     }
-  }
-
-  const handleCheck = (id) => {
   }
 
   return (
@@ -64,14 +60,13 @@ const FoodCard = ({ recipe }) => {
           <img src={recipe.image} className="modal__img" alt="Food Thumbnail" />
           <h3 className="modal__heading">Ingredients</h3>
           {recipe?.extendedIngredients?.map((item, index) => (
-            // <p className="modal__ingredients" key={index}>{index + 1}.{" "}
-            //   <p style={{ marginLeft: "5px" }}>
-            //     {item.name.charAt(0).toUpperCase() + item.name.slice(1)}:{" "}
-            //     {item.amount}
-            //     {item.unit}
-            //   </p>
-            // </p>
-            <p><input type="checkbox" checked={checked} onClick={() => handleCheck(item.id)} className="mr-2"/><label>{item.name}</label></p>
+            <p className="modal__ingredients" key={index}>{index + 1}.{" "}
+              <p style={{ marginLeft: "5px" }}>
+                {item.name.charAt(0).toUpperCase() + item.name.slice(1)}:{" "}
+                {item.amount}
+                {item.unit}
+              </p>
+            </p>
           ))}
           <h3>Instructions</h3>
           {recipe.analyzedInstructions?.map((item) =>
